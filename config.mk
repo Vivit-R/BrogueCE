@@ -8,3 +8,6 @@ SDL_CONFIG := sdl2-config
 
 # Enable debugging mode. See top of Rogue.h for features
 DEBUG := NO
+
+# Configure the executable to run from a macOS .app bundle (only works in graphical mode)
+MAC_APP := NO

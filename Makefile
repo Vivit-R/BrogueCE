@@ -19,6 +19,10 @@ ifeq ($(GRAPHICS),YES)
 	libs += $(shell $(SDL_CONFIG) --libs) -lSDL2_image
 endif
 
+ifeq ($(MAC_APP),YES)
+	cppflags += -DSDL_PATHS
+endif
+
 ifeq ($(DEBUG),YES)
 	cflags += -g
 	cppflags += -DDEBUGGING=1
