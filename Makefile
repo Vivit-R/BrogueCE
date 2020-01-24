@@ -46,3 +46,13 @@ bin/brogue.exe: $(objects) icon.o
 
 clean:
 	$(RM) $(objects) bin/brogue{,.exe}
+
+
+# $* is the matched %
+icon_%.png: bin/assets/icon.png
+	convert $< -resize $* $@
+
+# Dependencies after | are not considered when deciding to update target
+macos/Brogue.icns: | icon_32.png icon_128.png icon_256.png icon_512.png
+	png2icns $@ $^
+	$(RM) $^
